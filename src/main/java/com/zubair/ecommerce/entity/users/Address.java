@@ -1,4 +1,4 @@
-package com.zubair.ecommerce.users;
+package com.zubair.ecommerce.entity.users;
 
 
 import jakarta.persistence.Column;
