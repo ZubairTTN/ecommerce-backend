@@ -10,7 +10,7 @@ import java.util.Optional;
 /* Auditing class to getLastModified and created by for the
 entities
  */
-@Component("auditorAware")
+@Component("auditorAware") /* This registers your class as a Spring bean with the name: auditorAware and is being used in ApplicationAuditAware class*/
 public class ApplicationAuditAware implements AuditorAware<String> {
 
     @Override
@@ -18,7 +18,7 @@ public class ApplicationAuditAware implements AuditorAware<String> {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if(authentication == null || !authentication.isAuthenticated())
         {
-            return Optional.ofNullable("self");
+            return Optional.of("system"); /* Optional.of() expects a non-null value. */
         }
         return Optional.ofNullable(authentication.getName());
     }

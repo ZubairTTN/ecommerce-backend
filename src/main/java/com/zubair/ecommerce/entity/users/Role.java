@@ -25,6 +25,8 @@ public class Role {
     @UuidGenerator(style = UuidGenerator.Style.TIME)
     @Column(name = "id")
     private UUID roleId;
+
+    @Column(nullable = false, unique = true)
     private String authority;
 
     @ManyToMany(mappedBy = "roles")

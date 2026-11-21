@@ -36,7 +36,7 @@ public class Address {
     private Boolean isDeleted;
 
     @PrePersist
-    protected void onCreate()
+    protected void setDefaultValues()
     {
         if(isDeleted == null)
         {

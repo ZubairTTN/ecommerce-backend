@@ -48,33 +48,44 @@ public class User {
     private Boolean isLocked;
     private Integer invalidAttemptCount;
     private LocalDateTime passwordUpdateDate;
-
     private Date lastActivationTokenGenerationTime;
     private Date lastForgotPasswordTokenGenerationTime;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
     private LocalDateTime dateCreated;
+
     @LastModifiedDate
-    @Column(insertable = false)
+//    @Column(insertable = false)
     private LocalDateTime lastUpdated;
+
     @CreatedBy
     @Column(nullable = false, updatable = false)
     private String createdBy;
+
     @LastModifiedBy
-    @Column(insertable = false)
+//    @Column(insertable = false)
     private String updatedBy;
 
 
     @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id",referencedColumnName = "id"))
+    @JoinTable(name = "user_role",
+            joinColumns = @JoinColumn(
+                    name = "user_id",
+                    referencedColumnName = "id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id",
+                    referencedColumnName = "id"
+            )
+    )
     private Set<Role> roles = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private Set<Address> addresses;
+    private Set<Address> addresses = new HashSet<>();
 
+//    Helper Methods
     public void addRole(Role role)
     {
         this.roles.add(role);
@@ -83,6 +94,15 @@ public class User {
     public void addAddress(Address address)
     {
         this.addresses.add(address);
+    }
+
+    @PrePersist
+    protected void setDefaultValues()
+    {
+        if(isDeleted == null)
+        {
+            isDeleted = false;
+        }
     }
 
 
