@@ -1,6 +1,7 @@
 package com.zubair.ecommerce.entity.users;
 
 
+import com.zubair.ecommerce.entity.product.Product;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
@@ -9,6 +10,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.SuperBuilder;
+
+import java.util.Set;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "userId")
@@ -23,6 +26,6 @@ public class Seller extends User{
     private Long companyContact;
     private String companyName;
 
-//    @OneToMany(mappedBy = "seller")
-//    private Set<Product> productList;
+    @OneToMany(mappedBy = "seller")
+    private Set<Product> productList;
 }
