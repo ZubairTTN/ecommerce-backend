@@ -43,6 +43,7 @@ public class Category {
     private Category parentCategory;
 
     @OneToMany(mappedBy = "parentCategory", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Builder.Default
     private List<Category> leafCategories = new ArrayList<>();
 
     @OneToMany(mappedBy = "category")

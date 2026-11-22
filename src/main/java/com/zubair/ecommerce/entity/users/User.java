@@ -3,6 +3,7 @@ package com.zubair.ecommerce.entity.users;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
 import org.hibernate.annotations.UuidGenerator;
@@ -79,10 +80,12 @@ public class User {
                     referencedColumnName = "id"
             )
     )
+    @Builder.Default
     private Set<Role> roles = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @Builder.Default
     private Set<Address> addresses = new HashSet<>();
 
 //    Helper Methods
