@@ -12,8 +12,15 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
+/* Electronics is the parent of Mobiles and Laptops.
+Mobiles is the parent of Android and iPhone.
+Laptops is the parent of Gaming and Business.
+A category can have one parent and multiple children.
+A category can be both a child and a parent. */
 
 @Entity
 @Getter
@@ -36,10 +43,10 @@ public class Category {
     private Category parentCategory;
 
     @OneToMany(mappedBy = "parentCategory", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Category> leafCategories;
+    private List<Category> leafCategories = new ArrayList<>();
 
-//    @OneToMany(mappedBy = "category")
-//    private List<Category> leafCategories = new ArrayList<>();
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)

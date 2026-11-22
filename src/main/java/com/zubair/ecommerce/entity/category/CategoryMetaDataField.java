@@ -15,6 +15,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
+/* stores the names of the metadata fields (attributes) Eg. Brand, Ram, Storage, etc... */
 
 @Entity
 @Getter
