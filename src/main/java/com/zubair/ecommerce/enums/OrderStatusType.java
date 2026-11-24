@@ -1,0 +1,19 @@
+package com.zubair.ecommerce.enums;
+
+public enum OrderStatusType {
+    ORDER_CONFIRMED,
+    ORDER_REJECTED,
+    REFUND_INITIATED,
+    CLOSED,
+    CANCELLED,
+    ORDER_SHIPPED,
+    DELIVERED,
+    RETURN_REQUESTED,
+    RETURN_REJECTED,
+    RETURN_APPROVED,
+    PICK_UP_INITIATED,
+    PICK_UP_COMPLETED,
+    REFUND_COMPLETED,
+    ORDER_PLACED,
+
+}
