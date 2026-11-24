@@ -8,6 +8,8 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -53,4 +55,9 @@ public class User extends ApplicationAudit {
 
     @Column(name = "password_update_date")
     private LocalDateTime passwordUpdateDate;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private Set<UserRole> userRoles = new HashSet<>();
+
+
 }
