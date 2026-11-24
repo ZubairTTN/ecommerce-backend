@@ -18,7 +18,7 @@ import java.util.Set;
 @NoArgsConstructor
 @SuperBuilder(toBuilder = true)
 public class Customer extends User{
-    private Long contact;
+    private String contact;
 
     @OneToMany(mappedBy = "customer")
     private Set<Orders> orders;
