@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -48,4 +50,7 @@ public class User extends ApplicationAudit {
 
     @Column(name = "invalid_attempt_count")
     private Integer invalidAttemptCount = 0;
+
+    @Column(name = "password_update_date")
+    private LocalDateTime passwordUpdateDate;
 }
