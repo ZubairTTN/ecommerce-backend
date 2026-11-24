@@ -27,7 +27,8 @@ public class Cart {
     private CartId id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("customerUserId")
+    @MapsId("customerUserId") /* Use the primary key of the Customer object as the customerUserId part of the CartId composite primary key. */
+    @JoinColumn(name = "customer_user_id")
     private Customer customer;
 
     private int quantity;
@@ -35,6 +36,7 @@ public class Cart {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("productVariationId")
+    @JoinColumn(name = "product_variation_id")
     private ProductVariation productVariation;
     @CreatedDate
     @Column(nullable = false, updatable = false)

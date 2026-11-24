@@ -11,7 +11,7 @@ import lombok.experimental.SuperBuilder;
 import java.util.Set;
 
 @Entity
-@PrimaryKeyJoinColumn(name = "userId")
+@PrimaryKeyJoinColumn(name = "userId") /* tells Hibernate that the Customer table uses a column named userId to reference the primary key of the User table. */
 @Getter
 @Setter
 @AllArgsConstructor

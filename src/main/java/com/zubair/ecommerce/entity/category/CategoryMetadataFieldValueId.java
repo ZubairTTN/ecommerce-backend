@@ -8,7 +8,7 @@ import java.util.UUID;
 
 /* Composite Primary Key */
 
-@Embeddable
+@Embeddable /* This class can be placed inside another entity, and its fields can become columns in that entity's database table. */
 @Getter
 @Setter
 @NoArgsConstructor

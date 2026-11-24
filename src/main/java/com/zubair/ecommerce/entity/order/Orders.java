@@ -31,7 +31,7 @@ public class Orders {
     private UUID orderId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customerUserId",referencedColumnName = "userId")
+    @JoinColumn(name = "customer_user_id",referencedColumnName = "userId") /* This tells Hibernate which database column in the Customer table the foreign key references. */
     private Customer customer;
 
     private BigDecimal amountPaid;
@@ -40,7 +40,7 @@ public class Orders {
     private String customerAddressState;
     private String customerAddressCountry;
     private String customerAddressAddressLine;
-    private Integer customerAddressZipCode;
+    private String customerAddressZipCode;
     private String customerAddressLabel;
 
     @OneToMany(mappedBy = "order")

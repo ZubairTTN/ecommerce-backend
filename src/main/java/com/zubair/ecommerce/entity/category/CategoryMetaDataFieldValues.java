@@ -9,7 +9,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
-
+/* Ram: 4gb, 6gb,  Storage: 256GB, 512GB etc...*/
 @Entity
 @Getter
 @Setter
@@ -19,11 +19,11 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 public class CategoryMetaDataFieldValues {
 
-    @EmbeddedId
+    @EmbeddedId /* Use the two fields inside CategoryMetadataFieldValueId as the primary key of this entity. */
     private CategoryMetadataFieldValueId id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("categoryMetadataFieldId")
+    @MapsId("categoryMetadataFieldId") /* Take the primary key of the categoryMetaDataField object and use it as the categoryMetadataFieldId part of my composite primary key. */
     @JoinColumn(name = "category_metadata_field_id")
     private CategoryMetaDataField categoryMetaDataField;
 

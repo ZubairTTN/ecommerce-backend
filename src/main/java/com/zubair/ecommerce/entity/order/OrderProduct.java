@@ -16,6 +16,8 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+/* OrderProduct represents one item inside a customer's order. */
+
 @Entity
 @Getter
 @Setter
@@ -28,6 +30,7 @@ public class OrderProduct {
     @Column(name = "id")
     private UUID orderProductId;
 
+    /* Many order-product records can belong to one order. */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "orderId")
     private Orders order;

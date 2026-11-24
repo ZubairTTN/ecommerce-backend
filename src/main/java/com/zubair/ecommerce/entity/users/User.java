@@ -35,7 +35,7 @@ public class User {
     @Id
     @UuidGenerator(style = UuidGenerator.Style.TIME)
     @Column(name = "id")
-    private UUID userID;
+    private UUID userId;
     @Column(name = "email", unique = true)
     private String email;
     private String firstName;

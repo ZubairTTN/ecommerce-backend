@@ -38,14 +38,14 @@ public class ProductVariation {
     private Integer quantityAvailable;
     private BigDecimal price;
 
-    @JdbcTypeCode(SqlTypes.JSON)
+    @JdbcTypeCode(SqlTypes.JSON) /* tells Hibernate to use JSON-based JDBC mapping. */
     @Column(columnDefinition = "json")
     private Map<String, Object> metadata;
 
     private String primaryImageName;
     private boolean isActive;
 
-    @OneToMany(mappedBy = "productVariation")
+    @OneToMany(mappedBy = "productVariation") /* One variation can appear in many customers' carts. */
     private List<Cart> cartItems;
     @CreatedDate
     @Column(nullable = false, updatable = false)
