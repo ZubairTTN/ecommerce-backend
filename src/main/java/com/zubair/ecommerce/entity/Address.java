@@ -9,6 +9,12 @@ import lombok.Setter;
 
 import java.util.UUID;
 
+/* Here, we are specifying a unique constraint to ensure that duplicate
+   values cannot be stored in a particular column or combination of columns.
+   In this case, we are applying a unique constraint to a combination of
+   six columns, meaning that no two records can have identical values
+   across all six columns. Hence, it is called a Composite Unique Constraint. */
+
 @Entity
 @Table(
         name = "address",
