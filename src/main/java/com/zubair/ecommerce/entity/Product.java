@@ -50,4 +50,7 @@ public class Product extends ApplicationAudit {
 
     @OneToMany(mappedBy = "product")
     private List<ProductVariations> productVariationList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "product")
+    private List<ProductReview> productReviews = new ArrayList<>();
 }
