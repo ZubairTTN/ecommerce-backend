@@ -19,7 +19,7 @@ public class Category extends ApplicationAudit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID Id;
+    private UUID id;
 
     @Column(nullable = false, length = 40)
     private String name;

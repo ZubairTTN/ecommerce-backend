@@ -25,7 +25,7 @@ import java.util.UUID;
 public class CategoryMetadataFieldValues {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID Id;
+    private UUID id;
 
     @Column(nullable = false)
     private String value;
